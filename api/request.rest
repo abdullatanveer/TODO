@@ -1,0 +1,17 @@
+GET http://localhost:3001/todos
+
+###
+POST http://localhost:3001/todos/create
+Content-Type: application/json
+
+{
+    "text":"open the gate"
+}
+
+###
+DELETE http://localhost:3001/todo/delete/64abdb9cb01d08312ee74e8e
+
+
+###
+PUT  http://localhost:3001/todo/complete/64abdc7147c04763974f2d1b
+ 
