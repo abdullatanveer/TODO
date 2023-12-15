@@ -1,6 +1,13 @@
 version: '3.8'
 
 services:
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"  # Map container's port 27017 to host's port 27017
+    volumes:
+      - mongo_data:/data/db  # Persist MongoDB data
+
   backend:
     build:
       context: ./api
@@ -19,14 +26,7 @@ services:
     ports:
       - "3000:3000"  # Map container's port 3000 to host's port 3000
     depends_on:
-      - backend
-
-  database:
-    image: mongo
-    ports:
-      - "27017:27017"  # Map container's port 27017 to host's port 27017
-    volumes:
-      - mongo_data:/data/db  # Persist MongoDB data
+      - backend  # Wait for the backend to start before starting the frontend
 
 volumes:
   mongo_data:  # Define a named volume for MongoDB data persistence
