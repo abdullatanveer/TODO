@@ -4,8 +4,9 @@ FROM node:latest
 # Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy frontend package.json and package-lock.json to the working directory
-COPY package*.json .
+# # Copy frontend package.json and package-lock.json to the working directory
+# COPY package*.json .
+COPY package*.json /usr/src/app/
 
 # Install frontend dependencies
 RUN npm install
