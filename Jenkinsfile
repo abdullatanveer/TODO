@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    stages {
+        stage('Preparation') {
+            steps {
+                cleanWs()
+           }
+    }
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build Docker Images') {
+            steps {
+                script {
+                    // Build backend Docker image
+                    dir('api') {
+                        docker.build('backend-image') // Replace 'backend-image' with your image name
+                    }
+
+                    // Build frontend Docker image
+                    dir('client') {
+                        docker.build('frontend-image') // Replace 'frontend-image' with your image name
+                    }
+                }
+            }
+        }
+        stage('Run Docker Compose') {
+            steps {
+                script {
+                    sh 'docker-compose -f docker-compose.yml up -d'
+                }
+            }
+        }
+    }
+}
