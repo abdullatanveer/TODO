@@ -2,7 +2,7 @@
 
  
  
- const API ='http://34.207.239.207:3001';
+ const API ='http://34.207.200.3:3001';
 function App() {
   const [todos,settodos]=useState([]);
   const [newTodo,setNewTodo]=useState('');
