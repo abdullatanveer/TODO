@@ -12,7 +12,7 @@ services:
     image: abdullahtanveer/api:dailyback
        
     ports:
-      - "3001:3001"  # Map container's port 3001 to host's port 3001
+      - "4000:3001"  # Map container's port 3001 to host's port 3001
     depends_on:
       - database  # Wait for the database container to start before starting the backend
     environment:
@@ -21,7 +21,7 @@ services:
   frontend:
     image: abdullahtanveer/client:dailyfront
     ports:
-      - "3000:3000"  # Map container's port 3000 to host's port 3000
+      - "4001:3000"  # Map container's port 3000 to host's port 3000
     depends_on:
       - backend  # Wait for the backend to start before starting the frontend
 
