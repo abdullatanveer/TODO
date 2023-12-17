@@ -22,9 +22,9 @@ services:
   frontend:
     image: abdullahtanveer/client:dailyfront
     environment:
-      - PORT=8001
+      - PORT=4001
     ports:
-      - "8001:3000"  # Map container's port 3000 to host's port 3000
+      - "4001:3000"  # Map container's port 3000 to host's port 3000
     depends_on:
       - backend  # Wait for the backend to start before starting the frontend
 
